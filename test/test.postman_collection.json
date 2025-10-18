@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "a23a6ff7-2641-43a5-bb3a-5d31567ac8dd",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42679303"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/api/v1/public/ping"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8080/api/v1/public/login"
+			},
+			"response": []
+		},
+		{
+			"name": "protected test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMDEsInVzZXJuYW1lIjoiYWRtaW4iLCJpc3MiOiJNeUFwcElzc3VlciIsImV4cCI6MTc2MDgxOTc0NCwiaWF0IjoxNzYwNzc2NTQ0fQ.qSvXhvEUfyPNHRAkrx7NAU4W8MeQlqcd5qSi3RFrj-A"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8080/api/v1/protected/user/info"
+			},
+			"response": []
+		}
+	]
+}
