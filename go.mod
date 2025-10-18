@@ -1,4 +1,4 @@
-module jwtauth
+module github.com/scott-x/jwtauth
 
 go 1.24.3
 
