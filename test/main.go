@@ -36,17 +36,15 @@ func main() {
 
 func SetupRouter() *gin.Engine {
 	router := gin.Default()
-
-	router.POST("/login", LoginHandler)
-
-	//public
+	
+	//public group
 	public := router.Group("/api/v1/public")
 	{
 		public.POST("/login", LoginHandler) //login
 		public.GET("/ping", PingTest)
 	}
 
-	// 应用中间件到受保护的组
+	//protected group
 	protected := router.Group("/api/v1/protected")
 	protected.Use(authService.JWTMiddleware())
 	{
